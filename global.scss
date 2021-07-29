@@ -1,0 +1,139 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.header__container{
+    display: flex;
+    align-items: center;
+}
+
+
+.header {
+
+    &__title{
+        letter-spacing: .15em;
+        font-size: .75rem;
+        font-weight: 500;
+        margin: 10px 5px 0 0;
+    }
+    &__subcontent{
+        letter-spacing: .15em;
+        font-size: .3125rem;
+        font-weight: 400;
+        margin: 15px 0 0 0;
+    }
+    &__logo{
+        letter-spacing: .15em;
+        width: 24px;
+        margin: 8px 10px 0 8px;
+    }
+}
+
+
+
+.button {
+    &__container{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    &__button{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        box-sizing: border-box;
+        letter-spacing: .15em;
+        border-radius: 15px;
+        border: 1px solid black;
+        font-size: .625rem;
+        font-weight: 500;
+        background: transparent;
+        max-width: 75px;
+        max-height: 25px;
+        padding: 6px 27px;
+        text-indent: 0.15em;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        transition: all .2s ease-in;
+
+        &:hover{
+            background: rgba(black, .05);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+
+        }
+
+        &:nth-child(1){
+            margin-right: 73px;
+        }
+
+    }
+    
+}
+
+.dealer{
+    &__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__cardcontainer{
+        margin: 67px 0 33px 0;
+
+    }
+    &__cards{
+        height: 65.92px;
+        &:nth-child(1){
+            margin-right: 45px;
+        }
+
+    }
+    &__sectionname{
+        font-weight: 700;
+        font-size: .625rem;
+        letter-spacing: .15em;
+        text-indent: 0.15em;
+        margin-bottom: 111px;
+        color: transparent;
+        -webkit-text-stroke: .5px black;
+        
+        
+    }
+}
+
+.player{
+    &__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__cardcontainer{
+        margin: 0 0 33px 0;
+
+    }
+    &__cards{
+        height: 65.92px;
+        &:nth-child(1){
+            margin-right: 45px;
+        }
+
+    }
+    &__sectionname{
+        font-weight: 700;
+        font-size: .625rem;
+        letter-spacing: .15em;
+        text-indent: 0.15em;
+        margin-bottom: 45px;
+        
+        
+    }
+}
+
+

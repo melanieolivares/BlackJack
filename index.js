@@ -9,13 +9,11 @@ const cards = [
 
 ]
 
-
 const dealerIndex1 = Math.floor(Math.random() * 51);
 const dealerCard1 = cards[dealerIndex1];
 cards.splice(dealerIndex1, 1);
 console.log(`Here is the dealer's card: ${dealerCard1.magenta.bold}`);
     
-
 const dealerIndex2 = Math.floor(Math.random() * 50);
 const dealerCard2 = cards[dealerIndex2];
 cards.splice(dealerIndex2, 1);
@@ -41,10 +39,7 @@ if (dealerNum.charAt(0) === 'A' && dealerNum2.charAt(0) === 'A'){
     }
 }
 
-
 let dealerTotal = parseInt(dealerNum) + parseInt(dealerNum2)
-
-
 
 const randomIndex = Math.floor(Math.random() * 49);
 const randomCard = cards[randomIndex];
@@ -56,8 +51,6 @@ const randomIndex2 = Math.floor(Math.random() * 48);
 const randomCard2 = cards[randomIndex2];
 cards.splice(randomIndex2, 1);
 console.log(randomCard2.blue.bold);
-    
-    
 
 
 let card1 = randomCard;
@@ -76,7 +69,6 @@ if (card1.charAt(0) === 'J' || card1.charAt(0) === 'Q' || card1.charAt(0) === 'K
     }
 }
 
-
 if (card2.charAt(0) === 'J' || card2.charAt(0) === 'Q' || card2.charAt(0) === 'K'){
     card2 = 10;
 } else if (card2.charAt(0) === 'A'){
@@ -91,7 +83,6 @@ if (card2.charAt(0) === 'J' || card2.charAt(0) === 'Q' || card2.charAt(0) === 'K
 
 }
 
-
 let total =  parseInt(card1) + parseInt(card2);
 
 
@@ -104,12 +95,8 @@ if (total === 21 && dealerTotal === 21){
     
 }
 
-
 console.log(`Here is your current total: ${total}`.underline);
 
-
-
-// every time hit card range subtracts by 1
 let range = 47;
 
 function hitCard(){
@@ -134,9 +121,7 @@ function hitCard(){
     }
     total += parseInt(randomCard)
     console.log(`Here is your current total: ${total}`)
-
 }
-
 
 function dealerHitCard(){
     let dealerHitCardCounter = 0;
@@ -163,9 +148,7 @@ function dealerHitCard(){
 
 }
 
-
 let userCommand = prompt("Enter 'h' to hit or 's' to stand: ".bold);
-
 
 if (userCommand.toLowerCase() === 'h'){
     hitCard();
@@ -204,6 +187,7 @@ if (userCommand.toLowerCase() === 'h'){
                     }
                 } else {
                     console.log(`Dealer's total: ${dealerTotal}`)
+
                     if (parseInt(dealerTotal) > 21){
                         console.log('Dealer busts! You win!'.green.bold);
                     } else {
@@ -227,13 +211,6 @@ if (userCommand.toLowerCase() === 'h'){
         }
     }
     
-        
-
-
-
-
-
-
 } else if (userCommand.toLowerCase() === 's'){
     console.log(`Here are the dealer's cards: ${dealerCard1.magenta.bold} ${dealerCard2.magenta.bold}`);
     
@@ -275,5 +252,3 @@ if (userCommand.toLowerCase() === 'h'){
     
 }
 
-
-    
