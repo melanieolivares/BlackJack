@@ -1,5 +1,8 @@
 const prompt = require('prompt-sync')();
-const colors = require('colors');
+
+
+
+
 
 const cards = [
     'A♣', '2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣', 'K♣', 
@@ -9,10 +12,12 @@ const cards = [
 
 ]
 
+
+
 const dealerIndex1 = Math.floor(Math.random() * 51);
 const dealerCard1 = cards[dealerIndex1];
 cards.splice(dealerIndex1, 1);
-console.log(`Here is the dealer's card: ${dealerCard1.magenta.bold}`);
+console.log(`Here is the dealer's card: ${dealerCard1}`);
     
 const dealerIndex2 = Math.floor(Math.random() * 50);
 const dealerCard2 = cards[dealerIndex2];
@@ -50,7 +55,7 @@ console.log(randomCard.blue.bold);
 const randomIndex2 = Math.floor(Math.random() * 48);
 const randomCard2 = cards[randomIndex2];
 cards.splice(randomIndex2, 1);
-console.log(randomCard2.blue.bold);
+console.log(randomCard2);
 
 
 let card1 = randomCard;
@@ -87,15 +92,15 @@ let total =  parseInt(card1) + parseInt(card2);
 
 
 if (total === 21 && dealerTotal === 21){
-    return console.log('TIED!'.white.bold);
+    return console.log('TIED!');
 } else if (total === 21 && dealerTotal !== 21) {
-    return console.log('BLACKJACK!'.rainbow.bold);
+    return console.log('BLACKJACK!');
 } else if (dealerTotal === 21 && total !== 21){
-    return console.log(`Dealer has BlackJack! Dealer's card: ${dealerCard1.magenta.bold} ${dealerCard2.magenta.bold} ${'You lost'.red.bold}!`);
+    return console.log(`Dealer has BlackJack! Dealer's card: ${dealerCard1} ${dealerCard2} ${'You lost'}!`);
     
 }
 
-console.log(`Here is your current total: ${total}`.underline);
+console.log(`Here is your current total: ${total}`);
 
 let range = 47;
 
@@ -106,7 +111,7 @@ function hitCard(){
     range = range - parseInt(hitCardCounter);
     let randomCard = cards[randomIndex];
     cards.splice(randomIndex, 1);
-    console.log(`Here is your card: ${randomCard.blue.bold}`);
+    console.log(`Here is your card: ${randomCard}`);
     if (randomCard.charAt(0) === 'J' || randomCard.charAt(0) === 'Q' || randomCard.charAt(0) === 'K'){
         randomCard = 10;
     } else if (randomCard.charAt(0) === 'A'){
@@ -128,10 +133,9 @@ function dealerHitCard(){
     dealerHitCardCounter += 1;
     const randomIndex = Math.floor(Math.random() * range - parseInt(dealerHitCardCounter));
     range = range - parseInt(dealerHitCardCounter);
-    console.log('----------------------------------'.cyan)
     let randomCard = cards[randomIndex];
     cards.splice(randomIndex, 1);
-    console.log(`Dealer draws: ${randomCard.magenta.bold}`);
+    console.log(`Dealer draws: ${randomCard}`);
     if (randomCard.charAt(0) === 'A' && parseInt(dealerTotal) <= 10 ){
         randomCard = 11;
         
@@ -148,37 +152,37 @@ function dealerHitCard(){
 
 }
 
-let userCommand = prompt("Enter 'h' to hit or 's' to stand: ".bold);
+let userCommand = prompt("Enter 'h' to hit or 's' to stand: ");
 
 if (userCommand.toLowerCase() === 'h'){
     hitCard();
     if (total > 21){
-        console.log('You bust! Dealer wins!'.red.bold);
-        console.log(`Here were the dealer's cards: ${dealerCard1.magenta.bold} ${dealerCard2.magenta.bold}`);
+        console.log('You bust! Dealer wins!');
+        console.log(`Here were the dealer's cards: ${dealerCard1} ${dealerCard2}`);
     } else if (parseInt(total) === 21){
         console.log('BLACKJACK!'.rainbow.bold);
-        console.log(`Here were the dealer's cards: ${dealerCard1.magenta.bold} ${dealerCard2.magenta.bold}`)
+        console.log(`Here were the dealer's cards: ${dealerCard1} ${dealerCard2}`)
         
     } else if (total < 21){
         while (total <= 21){
-            userCommand = prompt("Enter 'h' to hit or 's' to stand: ".bold);
+            userCommand = prompt("Enter 'h' to hit or 's' to stand: ");
             if (userCommand.toLowerCase() === 's'){
-                console.log(`Here are the dealer's cards: ${dealerCard1.magenta.bold} ${dealerCard2.magenta.bold}`);
+                console.log(`Here are the dealer's cards: ${dealerCard1} ${dealerCard2}`);
         
                 if (parseInt(dealerTotal) < 17){
                     while (parseInt(dealerTotal) < 17){
                         dealerHitCard();
                         console.log(`Dealer's total: ${dealerTotal}`);
                         if (parseInt(dealerTotal) > 21){
-                            return console.log('Dealer busts! You win!'.green.bold);
+                            return console.log('Dealer busts! You win!');
                         } else{
                             if (parseInt(dealerTotal)  >= 17){
                                 if (total > dealerTotal){
-                                    return console.log('YOU WIN!'.green.bold);
+                                    return console.log('YOU WIN!');
                                 } else if (total === dealerTotal){
-                                    return console.log('TIED!'.white.bold);
+                                    return console.log('TIED!');
                                 } else if (total < dealerTotal){
-                                    return console.log('You lost!'.red.bold);
+                                    return console.log('You lost!');
                                 }
                             }
                         }
@@ -189,14 +193,14 @@ if (userCommand.toLowerCase() === 'h'){
                     console.log(`Dealer's total: ${dealerTotal}`)
 
                     if (parseInt(dealerTotal) > 21){
-                        console.log('Dealer busts! You win!'.green.bold);
+                        console.log('Dealer busts! You win!');
                     } else {
                         if (total > dealerTotal){
-                            return console.log('YOU WIN!'.green.bold);
+                            return console.log('YOU WIN!');
                         } else if (total === dealerTotal){
-                            return console.log('TIED!'.white.bold);
+                            return console.log('TIED!');
                         } else if (total < dealerTotal){
-                            returnconsole.log('You lost!'.red.bold);
+                            returnconsole.log('You lost!');
                         }
                     }
                         
@@ -204,30 +208,30 @@ if (userCommand.toLowerCase() === 'h'){
                 } else if (userCommand.toLowerCase() === 'h'){
                     hitCard();
                     if (total > 21){
-                        console.log('You bust! Dealer wins!'.red.bold);
-                        console.log(`Here were the dealer's cards: ${dealerCard1.magenta.bold} ${dealerCard2.magenta.bold}`);
+                        console.log('You bust! Dealer wins!');
+                        console.log(`Here were the dealer's cards: ${dealerCard1} ${dealerCard2}`);
                     }
                 }
         }
     }
     
 } else if (userCommand.toLowerCase() === 's'){
-    console.log(`Here are the dealer's cards: ${dealerCard1.magenta.bold} ${dealerCard2.magenta.bold}`);
+    console.log(`Here are the dealer's cards: ${dealerCard1} ${dealerCard2}`);
     
     if (parseInt(dealerTotal) < 17){
         while (parseInt(dealerTotal) < 17){
             dealerHitCard()
             console.log(`Dealer's total: ${dealerTotal}`)
             if (parseInt(dealerTotal) > 21){
-                return console.log('Dealer busts! You win!'.green.bold);
+                return console.log('Dealer busts! You win!');
             } else{
                 if (parseInt(dealerTotal)  >= 17){
                     if (total > dealerTotal){
-                        return console.log('YOU WIN!'.green.bold);
+                        return console.log('YOU WIN!');
                     } else if (total === dealerTotal){
-                        return console.log('TIED!'.white.bold);
+                        return console.log('TIED!');
                     } else if (total < dealerTotal){
-                        return console.log('You lost!'.red.bold);
+                        return console.log('You lost!');
                     }
                 }
             }
@@ -237,14 +241,14 @@ if (userCommand.toLowerCase() === 'h'){
     } else {
         console.log(`Dealer's total: ${dealerTotal}`)
         if (parseInt(dealerTotal) > 21){
-            console.log('Dealer busts! You win!'.green.bold);
+            console.log('Dealer busts! You win!');
         } else {
             if (total > dealerTotal){
-                return console.log('YOU WIN!'.green.bold);
+                return console.log('YOU WIN!');
             } else if (total === dealerTotal){
-                return console.log('TIED!'.white.bold);
+                return console.log('TIED!');
             } else if (total < dealerTotal){
-                return console.log('You lost!'.red.bold);
+                return console.log('You lost!');
             }
         }
             

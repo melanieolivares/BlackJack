@@ -14,24 +14,39 @@
         <div class = 'header__title'>BLACKJACK</div>
         <div class ='header__subcontent'>MADE SIMPLE. MADE BY MELANIE.</div>
     </header>
+    <section class = 'start'> 
+        CLICK TO BEGIN
+    </section>
     <section class = 'dealer__container'>
         <div class = 'dealer__cardcontainer'>
-            <img class = 'dealer__cards' src="cards/backofcard.png" alt="back of card">
+            <div class = 'dealer__total'>DEALER'S TOTAL: </div>
+            <img class = 'dealer__cards' id = 'startCard1' src="cards/backofcard.png" alt="back of card">
             <img class = 'dealer__cards' src="cards/backofcard.png" alt="back of card">
         </div>
         <div class = 'dealer__sectionname'>DEALER'S CARDS</div>
     </section>
     <section class = 'player__container'>
         <div class = 'player__cardcontainer'>
-            <img class = 'player__cards' src="cards/backofcard.png" alt="back of card">
-            <img class = 'player__cards' src="cards/backofcard.png" alt="back of card">
+            <div class = 'player__total'>YOUR TOTAL: </div>
+            <img class = 'player__cards' id = 'startCard2' src="cards/backofcard.png" alt="back of card">
+            <img class = 'player__cards' id = 'startCard3' src="cards/backofcard.png" alt="back of card">
         </div>
         <div class = 'player__sectionname'>YOUR CARDS</div>
+    </section>
+    <section class = 'ace__container'>
+        <div class = 'ace__text'>CLICK THE VALUE OF THE ACE</div>
+        <div class = 'ace__buttoncontainer'>
+            <button class = 'ace__button' id = 'value1'>1</button>
+            <button class = 'ace__button' id = 'value11'>11</button>
+        </div>
+    </section>
+    <section class = 'startbutton__container'>
+        <button class = 'startbutton__button'>START</button>
     </section>
     <section class = 'button__container'>
         <button class = 'button__button'>HIT</button>
         <button class = 'button__button'>STAND</button>
     </section>
-    <script src="index.js"></script>
+    <script src="global.js"></script>
 </body>
 </html>
